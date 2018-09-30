@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <title>Exercice 10</title>
+</head>
+<body>
+    
+<div class="container">
+
+<p class="alert alert-info"> Entrez un nombre pour que je puisse calculer </p>
+
+
+
+    
+<label for="Taille"> Entrer un nombre</label>
+   
+       
+<input type="number"  > 
+<select id="taille">
+    <option value="55" > 55</option>
+    <option value="42" > 42</option>      
+</select>
+<button class="danger" onclick="calculer()" >Calculer</button>
+    
+
+
+
+
+<p id="result"></p>
+
+</div>
+
+<script>  
+    
+function calculer() {
+    
+var taille = document.getElementById('taille').value * 6; 
+    
+//document.write(taille);
+document.getElementById('result').innerHTML=taille;  
+    
+}
+    
+    
+</script>
+  
+  
+
+
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 14 </title>
+</head>
+<body>
+ <!-- 5. Ecrivez un algorithme qui calcule et affiche l’air et la circonférence d’un cercle
+. L’algorithme demandera à l’utilisateur d’entrer la valeur du rayon. -->
+ 
+   <p> Entrez le rayon et je calcul pour afficher l'aire et la circonférence </p>
+   
+   
+   <input value="" id="rayon">
+   
+   <button onclick="calcul()">Je calcule</button>
+   
+    <p id="resultat1"></p>
+    
+    <p id="resultat2"></p>   
+   
+   <script>
+   
+       function calcul() {
+       
+       var rayon = parseFloat(document.getElementById('rayon').value); 
+       
+       resultat1.innerHTML = "L'aire du cercle est " + Math.pow(rayon, 2) * 3.14; 
+       resultat2.innerHTML = "la circonférence est " + rayon * 2 * 3.14; 
+       
+       
+   } 
+    
+    
+    </script>  
+   
+    
+</body>
+</html>
