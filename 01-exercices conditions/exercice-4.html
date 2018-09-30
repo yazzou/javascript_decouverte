@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Exercice 2 </title>
+    <title>Exercice 4</title>
 </head>
 <body>
-  
-  <!--2. Ecrire un algorithme qui demande deux nombres à l’utilisateur et l’informe
-ensuite si leur produit est négatif ou positif (on laisse de côté le cas où le
-produit est nul). Attention toutefois : on ne doit pas calculer le produit des
-deux nombres.
--->
+   
+   <!--Ecrire un algorithme qui demande deux nombres à l’utilisateur et l’informe
+ensuite si le produit est négatif ou positif (on inclut cette fois le traitement du
+cas où le produit peut être nul).-->
    
    <label> Entrez deux nombres </label>
+   
+   
    <input type="number"id="nombre1" value="">
    <input type="number" id="nombre2" value="">
    
@@ -20,6 +20,8 @@ deux nombres.
     
     <p style="color:red" id="negatif"> </p>
     <p style="color:green" id="positif"> </p>
+    <p style="color:blue" id="zero"> </p>
+    
     
     <script>
     
@@ -41,18 +43,30 @@ deux nombres.
         }
         
         
+        else if (number1 == 0 || number2 ==0 ) {
+            
+            
+        zero.innerHTML= "le produit est nul";
+            
+            
+        }
+        
         else 
         {
             
         negatif.innerHTML="Le produit est négatif";
-            
+        
         }
         
     }
         
-        
- 
-    
+   
     </script>
+    
 </body>
 </html>
+
+
+
+
+

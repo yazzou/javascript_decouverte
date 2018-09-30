@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 3</title>
+</head>
+<body>
+   
+<!--  Ecrire un algorithme qui demande trois noms à l’utilisateur et l’informe ensuite
+s’ils sont rangés ou non dans l’ordre alphabétique.-->
+  
+  
+  <p for="Names"> entrez trois noms</p>
+  
+  
+  <label>Nom 1 : </label><input type="text" id="nom1"> 
+  <label>Nom 2 : </label><input type="text" id="nom2">  
+  <label>Nom 3 : </label><input type="text" id="nom3"> 
+   
+   <button onclick="ordreAlpha()">Entrer </button>
+   
+   <p id="message"></p>
+   
+  <script>
+      function ordreAlpha() {
+          
+       // J'utilise tolowerCase() pour mettre en minuscules
+       // charAt(0) pour ne prendre que la première lettre de la chaine
+          
+          
+       var nom1 = document.getElementById('nom1').value.toLowerCase().charAt(0);
+       var nom2 = document.getElementById('nom2').value.toLowerCase().charAt(0);
+       var nom3 = document.getElementById('nom3').value.toLowerCase().charAt(0);
+          
+      
+     
+           
+         if ( nom1 < nom2 && nom2 < nom3 ) {
+              
+            message.innerHTML= "Les nom sont ordonnés alphabétiquement";  
+              
+          }
+        
+         else {
+             
+            message.innerHTML="Les noms ne sont pas ordonnés alphabétiquement";
+            
+        }
+      }
+    
+    </script>
+       
+       
+       
+       
+   
+   
+   
+</body>
+</html>
