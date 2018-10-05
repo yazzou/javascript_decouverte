@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 1 </title>
+</head>
+<body>
+
+<p> Introduisez un nombre </p>   
+   
+   <input type="number" id="nombre" value="">
+   
+   <button onclick="calcul()"> Go ! </button>
+   
+   <div id="affiche"> </div>
+   
+<script>
+ function calcul() {
+     
+     // Je récupère ma variable 
+     var nombre = parseFloat(document.getElementById("nombre").value); 
+     
+     
+     // Je crée la boucle 
+     
+     for (var i=0; i < 10; i++)
+         
+         {
+           
+      // J'effectue mon calcul   
+           // document.write( nombre + i);
+             
+      // je rajoute un espace 
+            // document.write(" ");
+             
+             
+        affiche.innerHTML += nombre + i + " "; 
+            
+         }
+     
+ }   
+    
+    
+    
+</script>
+    
+</body>
+</html>

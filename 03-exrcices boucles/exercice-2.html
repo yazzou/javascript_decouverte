@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 2</title>
+</head>
+
+
+<body>
+   
+   
+    <!--Ecrire un algorithme qui demande un nombre de départ, et qui calcule la somme des entiers jusqu'à ce nombre. Par exemple si l'on entre 5, le programme doit calculer 
+    1+2+3+4+5=15; -->
+    
+    
+      <p> Insérez un nombre </p> 
+   
+   <input type="number" id="nombre" value="">
+   
+   <button onclick="calcul()" >Go ! </button>
+   
+   <div id="affiche"> </div>
+   
+   <script>
+    
+    function calcul() {
+        
+        
+         
+        var j=0;         
+        var nombre =parseFloat(document.getElementById("nombre").value); 
+        
+        
+        for (var i= 1; i <= nombre ; i++) {
+            
+        
+        // Je calcule la valeur de j à chaque passage tant que la condition est vérifiée     
+           j = j+i;
+            
+            
+        // si i est égal à 1 alors je ne mets pas un plus devant
+            if (i!==1) {
+                
+              
+                affiche.innerHTML += "+";
+                
+            }
+            
+         // Si i est égal à   
+            affiche.innerHTML += i;
+            
+            
+        }
+        
+         affiche.innerHTML += "=" ;
+       
+        
+        
+        affiche.innerHTML += j;
+        
+        
+    }
+    
+    
+    </script>
+    
+</body>
+</html>

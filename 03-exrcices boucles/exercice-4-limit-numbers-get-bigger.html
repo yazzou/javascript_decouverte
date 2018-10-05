@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 4 bis </title>
+</head>
+<body>
+   
+<!-- Ajouter un élement à un tableau -->
+ 
+<input type="number" id="nombre">
+
+<!-- Un bouton qui sert à ajouter des éléments -->
+
+<input type="button" id="button1" value="Ajouter" onclick="ajouter_element_tableau();">
+
+<!--Un bouton qui sert à afficher la liste des nombres -->
+
+<input type="button" id="button2" value="Afficher les nombres entrés" onclick="display_array();">
+
+
+
+<div id="Result"></div>
+       
+           
+ <script>
+       
+// Je crée ma variable compteur         
+var x = 0;
+     
+// Je crée une variable qui me permets de mettre le nombre de fois que mon utilisateur entre un chiffre 
+var nb_fois_autorise = 2; 
+       
+// Je crée un tableau vide     
+var nombres_ajoutes = [];
+       
+       
+// La fonction se déclenche à chaque fois  qu'il y a un clic
+
+function ajouter_element_tableau()    
+{
+    
+    if ( x = nb_fois_autorise) {
+        
+         // J'utilise mar     
+         nombres_ajoutes[x] = document.getElementById("nombre").value;
+
+        // alert("Element: " + array[x] + " Added at index " + x);
+
+         x++;
+
+         document.getElementById("nombre").value = ""; 
+        
+        }
+
+    else if ( x = nb_fois_autorise ) {
+        document.getElementById("Result").innerHTML = "C'est bon t'as rajouté " + x + " élements, ça suffit maintenant";
+        document.getElementById("button1").disabled = true;
+    }
+        
+    
+    
+}
+
+       
+       
+       
+function display_array()
+{
+    
+// Deux variables servant à stocker les nombres plus grand au fur et à mesure que je parcour ma boucle 
+// et le numéro d'index 
+    
+   var nombreMax = -1; 
+   var nombreMaxIndex= -1; 
+    
+    
+    
+    
+    
+   var e = "<hr/>";   
+ //Je crée une variable compteur y, pour dire que tant qu'elle est inférieur au nombre d'éléments qui se trouvent dans 
+// tableau, alors elle doit exécuter une action....
+    
+   for (var i=0; i<nombres_ajoutes.length; i++)
+   {
+       
+// ... Cette action consiste à afficher les 
+       
+     e += "Element " + i + " = " + nombres_ajoutes[i] + "<br/>";
+       
+       
+// Je compare mes différentes valeurs, je commence par stocker un nombre dans ma variable nombreMax, 
+// et à chaque itération je compare la valeur du tableau avec le nombre stocké dans ma variable 
+// si je vois que le nombre parcouru est supérieur je le stocke à la place de l'actuel 
+       
+     if (nombres_ajoutes[i] > nombreMax)  {
+         
+        // Je récupère le nombre  
+        nombreMax = nombres_ajoutes [i] ; 
+        
+         
+        // Je récupère l'index
+        nombreMaxIndex = i;
+     }
+       
+  
+       
+   }
+   e += "Nombre plus grand " + nombreMax; 
+    
+   document.getElementById("Result").innerHTML = e;
+    
+ 
+    
+    
+    
+    
+
+}
+    
+    
+    </script>
+    
+    
+    
+    
+    
+    
+</body>
+</html>

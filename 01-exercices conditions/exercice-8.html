@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 5</title>
+</head>
+<body>
+   <!--
+   
+Écrivez un algorithme qui permet de discerner une mention à un étudiant
+selon la moyenne de ses notes :
+
+
+ - "Très bien" pour une moyenne comprise entre 16 et 20 (16<= moyenne
+<=20)
+
+
+ - "Bien" pour une moyenne comprise entre 14 et 16 (14<= moyenne <16)
+ 
+ 
+ - "Assez bien" pour une moyenne comprise entre 12 et 14 (12<= moyenne
+<14)
+ 
+ 
+- "Passable" pour une moyenne comprise entre 10 et 12 (10<= moyenne <12)
+
+--> 
+
+<p>Choisissez la tranche d'âge de votre enfant : </p>
+
+<input id="moyenne" type="number" value="">
+
+
+
+<button onclick="mention()"> Envoyer</button>
+
+
+<p id="afficheMention"></p>
+
+
+<script>
+    
+    
+function mention() {
+    
+    
+        
+        var moyenne = document.getElementById("moyenne").value;
+       
+        if (16 <= moyenne && moyenne <= 20 ) {
+            afficheMention.innerHTML=" Mention très bien"; 
+        }
+         else if (14 <= moyenne && moyenne < 16 ) {
+            afficheMention.innerHTML=" Mention bien"; 
+        }
+         else if (12 <= moyenne && moyenne < 14 ) {
+            afficheMention.innerHTML=" Mention Assez bien"; 
+        }
+         else if (10 <= moyenne && moyenne < 12 ) {
+            afficheMention.innerHTML=" Mention passable"; 
+        }
+        else {
+            afficheMention.innerHTML = "Veuillez entrer un nombre entre 10 et 20";
+        }
+    
+            
+            
+            
+            
+            
+            
+    }  // fin de la fonction   
+    
+    </script>
+
+
+</body>
+</html>

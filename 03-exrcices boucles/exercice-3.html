@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 3</title>
+</head>
+<body>
+   
+<p>Ajoutez un nombre</p>
+
+   <input type="number" id="nombre" value="">
+   
+   <button onclick="calcul()" >Go ! </button>
+   
+   <div id="affiche"> </div>
+   
+   
+<script>
+ function calcul() {
+     
+     var nombre = parseFloat(document.getElementById("nombre").value); 
+     
+     var factoriel = 1; 
+     
+     affiche.innerHTML += "Factoriel de "; 
+     
+     affiche.innerHTML += nombre + " est ";
+     
+     
+     
+     for (var i=1; i <=nombre ; i++) {
+         
+        // si i est égal à 1 alors je ne mets pas un plus devant
+        if (i!==1) {
+                
+              
+                affiche.innerHTML += "*";
+                
+        }
+        
+        
+         
+        affiche.innerHTML += i;  
+       factoriel = factoriel * i;
+  
+         
+     }
+     
+     affiche.innerHTML += "="; 
+     affiche.innerHTML += factoriel;
+     
+     
+     
+ }   
+    
+    
+</script>
+</body>
+</html>

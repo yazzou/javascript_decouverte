@@ -1,49 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title></title>
-
-
+    <meta charset="UTF-8">
+    <title>Exercice 6</title>
 </head>
-
 <body>
+<!--   
+Ecrivez un algorithme qui donne le plus grand nombre parmis trois nombres
+saisis au clavier. Effectuez des tests pour :
+2 5 8,
+3 1 3
+8 -6 1
+
+leur demander d'utiliser sans parseFloat
+-->
+
+<script>
     
+    
+var A = parseFloat(prompt("entrez un premier nombre")); 
+var B = parseFloat (prompt("Entrez un second nombre")); 
+var C = parseFloat (prompt("Entrez un troisième nombre"));
+    
+if (A > B && A > C ) { alert("A est le plus grand");}
+    
+else if (B> A && B > C) { alert("B est le plus grand");}
+    
+    
+else if (C> A && C > B) { alert("C est le plus grand");}  
+    
+else {alert ("il doit surement y avoir deux nombres égaux entre eux"); }    
+    
+    </script>
 
-    <script>
-		
-		
-var A=prompt("Entrer un nombre", A); 
-var B=prompt("Entrer un nombre", B); 
-var C=prompt("Entrer un nombre", C) ;
-        
-	
-        
-		if (A>B && A>C) {
-            alert ("le plus grand nombre est " + A); 
-        } 
-					
-		else if (B>A && B>C) {
-            
-            alert ("le plus grand nombre est " + B); 
-        } 
-						
-		else if (C>A && C>B) {
-            alert ("le plus grand nombre est " + C);
-        }  
-						
-		
-				
-				
-			
-		
-		
-		
-		</script>
-		
-	
-
-
-
+ 
 </body>
 </html>
-		

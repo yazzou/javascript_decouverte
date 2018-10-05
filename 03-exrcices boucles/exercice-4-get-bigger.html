@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 4 bis </title>
+</head>
+<body>
+   
+ 
+<input type="text" id="text1">
+<input type="button" id="button1" value="Add" onclick="add_element_to_array();">
+<input type="button" id="button2" value="Display" onclick="display_array();">
+<div id="Result"></div>
+       
+           
+   <script>
+       
+       
+var x = 0;
+       
+       
+var array = Array();
+       
+       
+       
+function add_element_to_array()
+       
+{
+    
+ array[x] = parseFloat(document.getElementById("text1").value);
+    
+// alert("Element: " + array[x] + " Added at index " + x);
+    
+ x++;
+    
+    
+ document.getElementById("text1").value = "";
+}
+
+       
+       
+       
+function display_array()
+{
+   var e = "<hr/>";   
+    
+   var nombreMax = -1; 
+   var nombreMaxIndex= -1; 
+    
+   for (var y=0; y<array.length; y++)
+       
+       
+   {
+     e += "Element " + y + " = " + array[y] + "<br/>";
+       
+       
+       
+            
+     if (array[y] > nombreMax)  {
+         
+        // Je récupère le nombre  
+        nombreMax = array [y] ; 
+        
+         
+        // Je récupère l'index
+        nombreMaxIndex = y;
+         
+         
+       
+     }
+       
+       
+       
+   }
+    
+    e += "Le plus grand a été entré à la ligne  " + nombreMaxIndex + " Il s'agit du nombre " + nombreMax + "<br/>";
+    
+    document.getElementById("Result").innerHTML = e;
+}
+    
+    
+    </script>
+    
+    
+    
+    
+    
+    
+</body>
+</html>

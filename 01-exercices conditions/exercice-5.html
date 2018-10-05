@@ -2,62 +2,71 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Exercice 5</title>
+    <title>Exercice 4</title>
 </head>
 <body>
-   <!--
    
-Ecrire un algorithme qui demande l’âge d’un enfant à l’utilisateur.
-Ensuite, il l’informe de sa catégorie :
-• "Poussin" de 6 à 7 ans
-• "Pupille" de 8 à 9 ans
-• "Minime" de 10 à 11 ans
-• "Cadet" après 12 ans
+   <!--Ecrire un algorithme qui demande deux nombres à l’utilisateur et l’informe
+ensuite si le produit est négatif ou positif (on inclut cette fois le traitement du
+cas où le produit peut être nul).-->
+   
+   <label> Entrez deux nombres </label>
+   
+   
+   <input type="number"id="nombre1" value="">
+   <input type="number" id="nombre2" value="">
+   
+   <button onclick="anaSign()">Envoyer</button>
+    
+    <div id="affiche"> </div>
+    
 
-
---> 
-
-<p>Choisissez la tranche d'âge de votre enfant : </p>
-
-<select id="tranche">
-    <option value="6-7">De 6 à 7 ans</option>
-    <option value="8-9">De 8 à 9 ans </option>
-    <option value="10-11"> De 10 à 11 ans</option>
-    <option value="12plus">Plus de 12 ans</option>
-</select>
-
-
-
-<button onclick="categorie()"> Envoyer</button>
-
-
-<p id="afficheCat"></p>
-
-
-<script>
-    function categorie() {
-        var tranche = document.getElementById("tranche").value;
-        switch(tranche) {
-            case '6-7': 
-            afficheCat.innerHTML="Catégorie Poussin"; 
-            break;
-            case '8-9': 
-            afficheCat.innerHTML="Catégorie Pupille"; 
-            break;
-            case '10-11': 
-            afficheCat.innerHTML="Catégorie Minime"; 
-            break;
-                
-            default :
-            afficheCat.innerHTML="Catégorie Cadet";   
-                    
-                
+    
+    
+    <script>
+    
+        
+         
+        
+        
+    function anaSign() {
+        
+        
+        var number1= parseFloat(document.getElementById('nombre1').value);
+        var number2= parseFloat(document.getElementById('nombre2').value); 
+        
+       if ((number1 <0 && number2 < 0 ) || (number1 >0 && number2 > 0))  {
+          
+        affiche.innerHTML="<p style='color:green'>Le produit est positif </p>";
+       
+        
         }
         
-    }    
-    
+        
+        else if (number1 == 0 || number2 ==0 ) {
+            
+            
+        affiche.innerHTML= "<p style='color:blue'>Le produit est nul </p>";
+            
+            
+        }
+        
+        else 
+        {
+            
+        affiche.innerHTML="<p style='color:red'>Le produit est négatif </p>";
+        
+        }
+        
+    }
+        
+   
     </script>
-
-
+    
 </body>
 </html>
+
+
+
+
+

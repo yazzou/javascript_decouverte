@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice numéro 9</title>
+</head>
+<body>
+<!--Un organisme de location de voitures propose à ses clients deux tarifs :
+
+1. tarif essence : 15 euros par jour de location et 85 centimes par kilomètre.
+
+2. tarif diesel : 16 euros par jour de location et 66 centimes par kilomètre.
+
+Ecrivez un algorithme calculant les deux tarifs pour ceux qui désirent louer.
+
+Utilisez les conditions pour indiquer le tarif le plus intéressant pour le client
+-->
+<h1>entrez les informations requises pour savoir quelle location vous convient le mieux </h1>   
+   
+
+     
+<label for="nbJrLoc">Pour combien de jours désirez vous louer ? </label>
+<br>
+<input type="number" id="nbJrLoc" value="">
+<br>
+<label for="nbKmLoc">Combien de kilomètres désirez-vous parcourir ?  </label>
+<br>
+<input type="number" id="nbKmLoc" value="">  
+<br> 
+<button onclick="calcul()">Voir le meilleur choix ! </button> 
+ <br>  
+ <p id="affiche"> </p>  
+
+    
+<script>
+    
+function calcul() {
+    
+    
+// Je récupère mes variables 
+    
+var nbJrLoc = document.getElementById("nbJrLoc").value; 
+var nbKmLoc = document.getElementById("nbKmLoc").value; 
+
+    
+    
+// J'effectue mes opérations   
+    
+var tarifEssence = +nbJrLoc * 15 + 0.85 * +nbKmLoc;
+var tarifDiesel =  +nbJrLoc * 16 + 0.66 * +nbKmLoc;    
+ 
+console.log( tarifEssence);
+console.log( tarifDiesel);
+    
+// J'affiche mes résultats 
+    
+if (tarifEssence > tarifDiesel ) {
+    
+affiche.innerHTML="Prenez une voiture Diesel ! C'est plus interessant pour vous !";     
+    
+}
+    
+else if  (tarifEssence < tarifDiesel ) {       
+affiche.innerHTML="Prenez une voiture essence ! C'est plus interessant pour vous !"; 
+    
+    }
+    
+}
+    
+</script>
+    
+</body>
+</html>

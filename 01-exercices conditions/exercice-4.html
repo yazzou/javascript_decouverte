@@ -10,18 +10,16 @@
 ensuite si le produit est négatif ou positif (on inclut cette fois le traitement du
 cas où le produit peut être nul).-->
    
-   <label> Entrez deux nombres </label>
+   <label> Entrez un nombres </label>
    
    
-   <input type="number"id="nombre1" value="">
-   <input type="number" id="nombre2" value="">
+   <input type="number" id="nombre1" value="">
+
    
    <button onclick="anaSign()">Envoyer</button>
     
-    <p style="color:red" id="negatif"> </p>
-    <p style="color:green" id="positif"> </p>
-    <p style="color:blue" id="zero"> </p>
-    
+    <p style="color:green" id="reponse"> </p>
+   
     
     <script>
     
@@ -33,28 +31,36 @@ cas où le produit peut être nul).-->
         
         
         var number1= parseFloat(document.getElementById('nombre1').value);
-        var number2= parseFloat(document.getElementById('nombre2').value); 
+         
         
-       if ((number1 <0 && number2 < 0 ) || (number1 >0 && number2 > 0))  {
+        
+       if (number1 > 0)  {
           
-        positif.innerHTML="Le produit est positif";
-       
-        
+        reponse.innerHTML= number1 + " est positif";
+           
+        reponse.style.display =="none";
+           
+           
         }
         
         
-        else if (number1 == 0 || number2 ==0 ) {
+        else if ( number1 === 0 ) {
             
             
-        zero.innerHTML= "le produit est nul";
+       reponse.innerHTML= number1 + " est nul";
             
+ 
+            
+    
             
         }
         
         else 
         {
             
-        negatif.innerHTML="Le produit est négatif";
+        reponse.innerHTML= number1 + " est négatif";
+            
+    
         
         }
         

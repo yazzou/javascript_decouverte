@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 1 Avec formulaire</title>
+</head>
+<body>
+  
+ <!-- 
+un programme qui demande un nombre à l'utilisateur
+et lui dit s'il est positif ou négatif
+   --> 
+    
+<p>Entrez un nombre et je vous direz s'il est positif ou négatif </p>
+  
+    
+<input type="number" id="nombre" value="">
+
+<button onclick="detect()"> Envoyer </button>
+
+<div id="affiche"></div>  
+  
+   
+ 
+ <script>
+
+    
+function detect () {
+    
+// Je demande le nombre
+    
+var nombre = parseFloat(document.getElementById("nombre").value);
+  
+// Ci-dessous une alert commentée qui me prouve que c'est bien un nombre   
+    
+//alert(typeof nombre);   
+    
+    
+ 
+// Je vérifie si l'utilisateur entre un nombre    
+if (isNaN(nombre)) {
+
+affiche.innerHTML= "<p style='color:red'>Tu n'as pas entré un nombre</p>"; 
+    
+}
+    
+// Si c'est bien un nombre je lui dis s'il est positif ou pas 
+    
+else if (nombre >= 0) {
+    
+   
+affiche.innerHTML= "<p style='color:green'>Le nombre " + nombre + " est positif</p>"; 
+        
+    }
+else 
+    {  
+        
+affiche.innerHTML= "<p style='color:blue'>Le nombre " + nombre + " est négatif</p>"; 
+        
+    }
+ }   
+</script>            
+       
+       
+       
+ 
+    
+</body>
+</html>

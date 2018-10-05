@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 4 bis </title>
+</head>
+<body>
+   
+<!-- Je crée un champ pour permettre à l'utisateur d'entrer un nombre-->
+<input type="number" id="text1">
+
+
+<!-- Je crée un boutton1. Lorsque l'utilisateur clique dessus, la fonction ajouter un nombre entre en action-->
+<input type="button" id="button1" value="Ajouter un nombre" onclick="ajouter_nombre()">
+
+<!-- Je crée un bouton2. Lorsque l'utilisateur clique dessus -->
+<input type="button" id="button2" value="Voir les nombres ajoutés" onclick="afficher_nombres()" disabled>
+
+
+
+
+<div id="Result"></div>
+       
+           
+<script>
+       
+// Variable compteur que j'incrémente à chaque ajout de nombre       
+var x = 0;
+       
+// Je crée un tableau vide      
+var array = Array();
+    
+    
+// Je détermine le nombre de fois autorisée pour ajouter un nombre    
+var nb_fois_autorisees= 3;
+       
+       
+ // La fonction       
+function ajouter_nombre()
+       
+{
+    
+ array[x] = parseFloat(document.getElementById("text1").value);
+    
+// alert("Element: " + array[x] + " Added at index " + x);
+    
+ x++;
+    
+    
+ document.getElementById("text1").value = "";
+    
+if (array.length === nb_fois_autorisees) {
+    
+    
+document.getElementById("Result").innerHTML = "C'est bon t'as rajouté " + x + " élements, ça suffit maintenant";
+    
+document.getElementById("button1").disabled = true;
+    
+document.getElementById("button2").disabled = false;
+    
+}
+    
+    
+}
+
+       
+       
+       
+function afficher_nombres()
+{
+   var e = "<hr/>";   
+    
+   var nombreMax = 0; 
+   var nombreMaxIndex= 0; 
+    
+   for (var y=0; y<array.length; y++)
+       
+       
+   {
+       
+     e += "Element " + y + " = " + array[y] + "<br/>";
+       
+       
+       
+            
+     if (array[y] > nombreMax)  {
+         
+        // Je récupère le nombre  
+        nombreMax = array [y] ; 
+        
+         
+        // Je récupère l'index
+        nombreMaxIndex = y;
+         
+         
+       
+     }
+       
+       
+       
+   }
+    
+    e += "Le plus grand a été entré à la ligne  " + (+nombreMaxIndex + 1) + " Il s'agit du nombre " + nombreMax + "<br/>";
+    
+    document.getElementById("Result").innerHTML = e;
+}
+    
+    
+    </script>
+    
+    
+    
+    
+    
+    
+</body>
+</html>
