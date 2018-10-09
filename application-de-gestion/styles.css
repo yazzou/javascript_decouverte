@@ -1,0 +1,136 @@
+html{
+    background: url("background.jpg") no-repeat;
+	background-size: cover;
+    min-height: 100%;
+}
+
+body{
+	background-color: transparent;
+}
+
+
+/* Le premier volet contenant le formulaire et le résultat du calcul */
+#pointMort-form{
+	max-width: 800px;
+	margin: 120px  auto 0 auto;
+    
+}
+
+/* La partie où il y a l'image avec les résultats */
+#pointMort-form .image{
+	float:left;
+	background-image: url("desk.jpg");
+	height: 500px;
+	width: 50%;
+	background-size: cover;
+	background-position: 25%;
+    position: relative;
+    padding:20px;
+    
+}
+
+
+/* Pour applique le overlay sur mon image j'utilise le pseudo élement https://developer.mozilla.org/fr/docs/Web/CSS/::after */
+
+
+#pointMort-form .image::after{
+    content:"";
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0; /* https://developer.mozilla.org/fr/docs/Web/CSS/z-index */
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* J'applique des propriétés à tous les éléments qui se trouvent "en-dessous" de ma bannière https://developer.mozilla.org/fr/docs/Web/CSS/S%C3%A9lecteurs_enfant */
+#pointMort-form .image > * {
+    
+   z-index: 10; /* Pour que les éléments soient superposés sur le overlay*/
+    position : relative; 
+    color:white;
+    
+    
+}
+
+
+/* Le formulaire sur lequel seront entrées les valeurs*/
+#pointMort-form .frm{
+	float:right;
+	height: 500px;
+    width: 50%;
+    min-width: 250px;
+    padding: 50px 35px;
+    background-size: 100% 100%;
+    background-color: white;
+}
+
+#pointMort-form h1{
+	margin-top: 30px;
+	margin-bottom: 20px;
+    color: white;
+}
+
+/* J'override les propriétés du formulaire de bootstrap */
+#pointMort-form .form-control{
+	width: 90%;
+	padding: 12px 20px;
+	height: auto;
+}
+
+
+/* Affichage des résultats */
+p#mcvAffiche , p#tmcvAffiche,p#seuilRentaAffiche , p#pointMortNbJrAffiche   {
+    font-size: 23px;
+    font-weight: bold;
+    color: #00ff0a !important;
+}
+
+
+
+/* Affichage de la définition */
+#pointMort-def{
+	max-width: 770px;;
+	margin: 20px  auto 120px auto;
+    background-color:white; 
+    
+}
+
+
+@media screen and (max-width: 700px){
+    
+    
+	#pointMort-form .image{
+		width: 30%;
+	    background-position: 60%;
+	}
+
+	#pointMort-form .frm{
+		width: 70%;
+	}
+
+	#pointMort-form .form-control{
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 500px){
+	#pointMort-form .image{
+		display: none;
+	}
+
+	#pointMort-form .frm{
+		width: 100%;
+	}
+
+	#pointMort-form h1{
+		text-align: center;
+	}
+
+	#pointMort-form .btn{
+		width: 100%;
+		margin-top: 20px;
+	}
+}

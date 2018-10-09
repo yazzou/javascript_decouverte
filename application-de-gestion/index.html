@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Calcul du point mort</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="js/counterup.js"></script>
+</head>
+
+<body>
+   
+    <!-- Je mets en place le premier contenaire  avec l'identifiant pointMort-form -->
+    
+    <div class="container" id="pointMort-form">
+       
+       <h1 class="text-center">Calculer le point mort</h1>
+       
+       
+       
+       
+        <div class="image">
+            
+          <!--Je récupère les différentes valeurs -->
+        <h2>La marge sur les coûts variables</h2>
+            <p id="mcvAffiche"></p>
+
+        <h2>Taux de marge sur les coûts variables</h2>
+            <p id="tmcvAffiche"></p>
+
+        <h2>Seuil de Rentabilité (SR)</h2>
+            <p id="seuilRentaAffiche"></p>
+
+        <h2>Le point mort en nombre de jours ? </h2>
+            <p id="pointMortNbJrAffiche"></p>   
+            
+            
+            
+        </div>
+        
+        
+        
+        
+    <div class="frm">
+           
+          
+               
+                <div class="form-group">
+                    <label for="chargesfixes">Montant des charges fixes</label>
+                    <input type="number" class="form-control"  placeholder="Charges fixes" id="chargesFixes">
+                </div>
+                
+                <div class="form-group">
+                    <label for="chargeVariables">Montant des charges variables</label>
+                    <input type="number" class="form-control"  placeholder="Charges variables" id="chargesVariables">
+                </div>
+                 
+                  <div class="form-group">
+                    <label for="chiffreAffaire">Montant du chiffre d'affaire</label>
+                    <input type="number" class="form-control"  placeholder="Chiffre d'affaires" id="chiffreAffaires">
+                </div>
+                
+                <div class="form-group">
+                    <label for="prixUnitaire">Indiquez le prix unitaire moyen (optionnel)</label>
+                    <input type="number" class="form-control"  placeholder="Prix unitaire" id="prixUnitaire">
+                </div>
+             
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-lg" onclick="getValue()">Calculer</button>
+                </div>
+           
+        </div>
+    
+        
+        
+        
+  
+        
+    </div>
+    
+   
+    
+         
+        <div class="container" id="pointMort-def">
+            
+        <h2> Quelques définitions</h2>  
+
+        <ul><li>Le seuil de rentabilité est le montant du chiffre d’affaires HT à réaliser au cours d’une période pour atteindre un équilibre, c’est-à-dire un résultat égal à zéro (le total des charges = le total des produits).</li>
+
+        <li>Quand le seuil de rentabilité est dépassé la société réalise des bénéfices</li>
+
+       <li> Quand le seuil de rentabilité n’est pas atteint la société réalise une perte.</li>
+
+       <li> Le seuil de rentabilité peut se décliner en nombre de jours de CA, en nombre de mois et/ou en quantité de produits à vendre…. Cette déclinaison est appelée alors le point mort.</li></ul>
+       
+                             
+        </div>
+        
+      
+       
+        
+         
+           
+<script>
+    
+ function getValue() {
+     
+ /*var mvcAffiche = document.getElementById('mvcAffiche');*/
+     
+ /* Je récupère mes valeurs depuis le formulaire */
+     
+ var chagesFixes = document.getElementById('chargesFixes').value;
+ var chagesVariables = document.getElementById('chargesVariables').value;
+ var chiffreAffaires = document.getElementById('chiffreAffaires').value;
+
+     
+     
+ /* Je fais mes calculs à partir des valeurs entrées dans le formulaire */
+     
+ var MCV = +chiffreAffaires - +chagesVariables; /* Calculer la Marge sur Coûts Variables (MCV) : MCV = CA-CV */
+ var TMCV = +MCV / +chiffreAffaires; /* Calculer le Taux de Marge sur Coûts Variables (TMCV) : TMCV = MCV/CA */
+ var seuilRenta =  +chagesFixes / TMCV ;/* Calculer le Seuil de Rentabilité (SR) : SR = CF / TMCV */
+ var pointMortNbJr =  +seuilRenta / ( +chiffreAffaires / 360) ; /* Calculer le seuil de rentabilité en nombre de jours */
+    
+     
+ /* J'affiche le résultat dans le html */   
+     
+// mcvAffiche.innerHTML=MCV; /* Pour que la marge sur le coût variable s'affiche */
+//tmcvAffiche.innerHTML=TMCV; /* Pour que Taux de Marge sur Coûts Variables s'affiche */
+ //seuilRentaAffiche.innerHTML=seuilRenta; /* Pour que le seuil de rentabilité s'affiche */ 
+ //pointMortNbJrAffiche.innerHTML= Math.ceil( pointMortNbJr) ; /* Pour que le point mort en nombre de jours s'affiche */
+ 
+  
+ 
+     
+     
+     
+     
+// j'utilise les options de la documentation   
+     
+// http://inorganik.github.io/countUp.js/  
+     
+     
+var options = {
+  useEasing: true, 
+  useGrouping: true, 
+  separator: ' ', 
+  decimal: ',', 
+    suffix: ' euros',
+};
+    
+var options2 = {
+  useEasing: true, 
+  useGrouping: true, 
+  separator: ' ', 
+  decimal: ',', 
+   
+};
+     
+var options3 = {
+  useEasing: true, 
+  useGrouping: true, 
+  separator: ' ', 
+  decimal: ',', 
+    suffix: ' jours',
+};     
+     
+
+
+     
+     
+var mvc = new CountUp('mcvAffiche', 0, MCV, 2, 2.5, options);
+var tmvc = new CountUp('tmcvAffiche', 0, TMCV, 2, 2.5, options2);
+var seuilRenta = new CountUp('seuilRentaAffiche', 0, seuilRenta, 2, 2.5, options);
+var pointMortNbJr = new CountUp('pointMortNbJrAffiche', 0, pointMortNbJr, 0, 2.5, options3);    
+     
+
+     
+// Affichage de la MVC      
+if (!mvc.error) {
+    
+  mvc.start();
+    
+} else {
+    
+console.error(mvc.error);
+} 
+     
+     
+// Pour affichage du TMVC     
+
+if (!tmvc.error) {
+    
+  tmvc.start();
+    
+} else {
+  console.error(tmvc.error);
+} 
+
+
+// Pour affichage du seuilRenta     
+
+if (!seuilRenta.error) {
+    
+  seuilRenta.start();
+    
+} else {
+  console.error(seuilRenta.error);
+} 
+  
+
+// Pour affichage du pointMortNbJr     
+
+if (!pointMortNbJr.error) {
+    
+  pointMortNbJr.start();
+    
+} else {
+  console.error(pointMortNbJr.error);
+} 
+  
+       
+     
+     
+     
+     
+     
+     
+     
+     
+     
+
+}   // fin de ma fonction get value 
+    
+  
+   
+    
+    
+    
+</script> 
+    
+    
+    
+    
+    
+    
+    
+    
+</body>
+
+
+
+</html>
